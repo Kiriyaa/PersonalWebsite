@@ -26,6 +26,31 @@ _build/projects.json  ← the file you actually edit
 _build/build.py       the generator
 ```
 
+## Videos
+
+There are two kinds of video slot, and both work the same way: paste an **embed** URL and the
+player appears. Leave it empty and you get a labelled placeholder instead, so the layout never
+looks broken while you're still editing.
+
+- **Demo reel** — the `reel` object at the top of `projects.json`. Appears on the home page
+  between the intro and the first group of work.
+- **Per project** — the `embed` field on each project. Appears at the top of that project page,
+  directly under the metadata.
+
+Use the embed form of the URL, not the one from the address bar:
+
+| Platform | Use this |
+|---|---|
+| YouTube | `https://www.youtube.com/embed/VIDEO_ID` |
+| Vimeo | `https://player.vimeo.com/video/VIDEO_ID` |
+
+For a YouTube link like `youtube.com/watch?v=Ch0Z9n4zCUY`, the ID is `Ch0Z9n4zCUY`. For Vimeo,
+it's the number at the end of the URL. Pasting a plain watch URL will not play — the platforms
+refuse to be framed that way.
+
+The short note under the empty reel slot is a reminder to you and disappears automatically once
+you fill the embed in, so it will never show on the live site.
+
 ## Adding or editing a project
 
 Edit `_build/projects.json`, then run:

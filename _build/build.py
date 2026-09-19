@@ -90,6 +90,24 @@ def footer(depth=0):
 </html>"""
 
 
+PLAY_ICON = ('<svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true">'
+             '<path d="M0 0l10 6-10 6z"/></svg>')
+
+
+def video_block(url, title, hint):
+    """Render an embed if a URL is set, otherwise a labelled empty slot."""
+    if url:
+        return (f'<div class="embed"><iframe src="{esc(url)}" title="{esc(title)}" '
+                f'allowfullscreen loading="lazy" '
+                f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; '
+                f'gyroscope; picture-in-picture"></iframe></div>')
+    return f"""<div class="video-ph">
+        <span class="icon">{PLAY_ICON}</span>
+        <strong>{esc(hint)}</strong>
+        <code>{esc(title)}</code>
+      </div>"""
+
+
 def thumb(p, depth=0):
     up = "../" * depth
     figs = p.get("figures") or []
@@ -139,6 +157,22 @@ def build_index(data):
     </div>
   </section>""")
 
+    reel = data.get("reel", {})
+    reel_note = reel.get("note", "")
+    reel_html = f"""
+  <section class="reel" id="reel">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{esc(reel.get('title', 'Demo Reel'))}</h2>
+        <span class="count">{esc(reel.get('year', ''))}</span>
+      </div>
+      {video_block(reel.get('embed', ''), 'reel.embed in _build/projects.json',
+                   'Demo reel goes here')}
+      {f'<p class="reel-note">{esc(reel_note)}</p>' if reel_note and not reel.get('embed') else ''}
+    </div>
+  </section>
+"""
+
     body = f"""
   <section class="hero">
     <div class="wrap">
@@ -149,13 +183,13 @@ def build_index(data):
       I'm currently <strong>Assistant Professor of Game Development at SUNY Morrisville</strong>,
       and I run <strong>Erosoft Studio</strong>, where I'm making a character-driven puzzle game in UE5.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#tools">See the work</a>
+        <a class="btn btn-primary" href="#reel">Watch the reel</a>
         <a class="btn" href="{CV_PATH}">Download CV</a>
         <a class="btn" href="mailto:zhoumh.ariza@gmail.com">Get in touch</a>
       </div>
     </div>
   </section>
-
+{reel_html}
 {chr(10).join(sections)}
 """
     page = (head("Minghao Zhou — Technical Artist & Game Developer",
@@ -196,11 +230,9 @@ def build_project(p, prev_p, next_p):
     meta_rows = "".join(
         f"<div><dt>{esc(k)}</dt><dd>{v}</dd></div>" for k, v in p.get("meta", {}).items())
 
-    embed = ""
-    if p.get("embed"):
-        embed = (f'<div class="embed"><iframe src="{esc(p["embed"])}" '
-                 f'title="{esc(p["title"])} documentation" allowfullscreen '
-                 f'loading="lazy"></iframe></div>')
+    embed = video_block(p.get("embed", ""),
+                        f'"embed" on {p["slug"]} in projects.json',
+                        f'Video slot — {p["title"]}')
 
     pager = []
     if prev_p:
