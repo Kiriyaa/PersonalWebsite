@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ribbon IK Plugin — Minghao Zhou</title>
+<meta name="description" content="A Maya plugin that builds ribbon IK setups from a selected joint chain, replacing an error-prone manual process with a parameterised dialog.">
+<meta property="og:title" content="Ribbon IK Plugin — Minghao Zhou">
+<meta property="og:description" content="A Maya plugin that builds ribbon IK setups from a selected joint chain, replacing an error-prone manual process with a parameterised dialog.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Minghao Zhou<span>.</span></a>
+    <nav class="nav">
+        <a href="../index.html" aria-current="page">Work</a>
+        <a href="../teaching.html">Teaching</a>
+        <a href="../about.html">About</a>
+        <a class="cv" href="../MinghaoZhou_CV.pdf">CV (PDF)</a>
+    </nav>
+  </div>
+</header>
+  <section class="proj-head">
+    <div class="wrap">
+      <a class="backlink" href="../index.html">&larr; All work</a>
+      <h1>Ribbon IK Plugin</h1>
+      <p class="summary">A Maya plugin that builds ribbon IK setups from a selected joint chain, replacing an error-prone manual process with a parameterised dialog.</p>
+      <dl class="meta"><div><dt>Role</dt><dd>Sole author</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>Tools</dt><dd>Maya, Python, MEL, Qt</dd></div><div><dt>Context</dt><dd>Built during Advanced Pipeline Topics, Carnegie Mellon ETC</dd></div></dl>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      
+      <figure>
+        <img src="../images/ribbon-ik-ui.png" alt="The build dialog. Controller count, ribbon width and joint pointing direction cover the settings that change most often between chains." loading="lazy"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/ribbon-ik-ui.png&lt;/div&gt;'">
+        <figcaption>The build dialog. Controller count, ribbon width and joint pointing direction cover the settings that change most often between chains.</figcaption>
+      </figure>
+      <div class="prose">
+      <h2>The problem</h2>
+      <p>Ribbon IK gives a limb or a tail smooth, volume-preserving deformation, but building one by hand is a long sequence of steps that has to be repeated identically for every chain: lofting the surface, generating follicles, creating and constraining controls, then wiring the blendshape options. Doing it twelve times for one creature is where mistakes get in.</p>
+      <p>I wrote the plugin so the setup becomes a single parameterised operation, and so the result is identical every time.</p>
+      <h2>What it does</h2>
+      <ul><li>Builds a ribbon surface and control rig from a selected root joint, with configurable controller count and ribbon width.</li><li>Handles joint pointing direction and normal flipping, which are the two settings that most often need correcting per-chain.</li><li>Optionally generates the curve needed for spline IK, and the control hierarchy, as independent toggles.</li><li>Exposes blendshape options — up/down and left/right sine waves, and reel — for secondary motion without hand-animating each control.</li></ul>
+      <h2>Notes</h2>
+      <p>The interface is deliberately plain. Technical artists reach for a tool mid-task, so every option is visible at once rather than nested behind tabs, and the defaults produce a usable rig without changing anything.</p>
+      <p>I later taught a session on authoring tools like this one in Maya with Python and MEL for the Advanced 3D Pipeline course at the ETC.</p>
+      </div>
+      <div class="pager"><span></span><a href="penguin-action-toolkit.html" style="text-align:right"><span class="label">Next</span>Penguin Action Toolkit</a></div>
+    </div>
+  </section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="mailto:zhoumh.ariza@gmail.com">zhoumh.ariza@gmail.com</a>
+      <a href="https://www.linkedin.com/in/minghaoz">LinkedIn</a>
+      <a href="https://vimeo.com/user105794618">Vimeo</a>
+      <a href="https://assetstore.unity.com/packages/templates/systems/penguin-arpg-toolkit-302387">Unity Asset Store</a>
+    </div>
+    <div class="copyright">&copy; 2026 Minghao Zhou</div>
+  </div>
+</footer>
+</body>
+</html>

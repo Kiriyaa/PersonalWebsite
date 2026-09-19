@@ -1,0 +1,373 @@
+{
+  "groups": [
+    {
+      "id": "tools",
+      "title": "Tools & Pipeline",
+      "note": "Editor tooling and automation for Maya, Unity and Unreal Engine. This is the through-line of my work and the subject I teach."
+    },
+    { "id": "rigging", "title": "Rigging & Animation", "note": "Character and creature setup, from stylised bipeds to quadrupeds and wings." },
+    { "id": "games", "title": "Games & Real-Time", "note": "Shipped and in-development titles, and real-time production work." },
+    { "id": "art", "title": "Art & Installation", "note": "Work made for exhibition rather than production." }
+  ],
+
+  "projects": [
+    {
+      "slug": "ribbon-ik-plugin",
+      "group": "tools",
+      "title": "Ribbon IK Plugin",
+      "role": "Sole author",
+      "year": "2024",
+      "tags": ["Maya", "Python", "MEL", "Qt"],
+      "summary": "A Maya plugin that builds ribbon IK setups from a selected joint chain, replacing an error-prone manual process with a parameterised dialog.",
+      "meta": {
+        "Role": "Sole author",
+        "Year": "2024",
+        "Tools": "Maya, Python, MEL, Qt",
+        "Context": "Built during Advanced Pipeline Topics, Carnegie Mellon ETC"
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": [
+            "Ribbon IK gives a limb or a tail smooth, volume-preserving deformation, but building one by hand is a long sequence of steps that has to be repeated identically for every chain: lofting the surface, generating follicles, creating and constraining controls, then wiring the blendshape options. Doing it twelve times for one creature is where mistakes get in.",
+            "I wrote the plugin so the setup becomes a single parameterised operation, and so the result is identical every time."
+          ]
+        },
+        {
+          "heading": "What it does",
+          "list": [
+            "Builds a ribbon surface and control rig from a selected root joint, with configurable controller count and ribbon width.",
+            "Handles joint pointing direction and normal flipping, which are the two settings that most often need correcting per-chain.",
+            "Optionally generates the curve needed for spline IK, and the control hierarchy, as independent toggles.",
+            "Exposes blendshape options — up/down and left/right sine waves, and reel — for secondary motion without hand-animating each control."
+          ]
+        },
+        {
+          "heading": "Notes",
+          "body": [
+            "The interface is deliberately plain. Technical artists reach for a tool mid-task, so every option is visible at once rather than nested behind tabs, and the defaults produce a usable rig without changing anything.",
+            "I later taught a session on authoring tools like this one in Maya with Python and MEL for the Advanced 3D Pipeline course at the ETC."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/ribbon-ik-ui.png", "caption": "The build dialog. Controller count, ribbon width and joint pointing direction cover the settings that change most often between chains." }
+      ]
+    },
+
+    {
+      "slug": "penguin-action-toolkit",
+      "group": "tools",
+      "title": "Penguin Action Toolkit",
+      "role": "Engineer & Technical Designer",
+      "year": "2024",
+      "tags": ["Unity", "C#", "Editor Tooling", "Released"],
+      "summary": "An accessible, extensible action-game framework for Unity, released free on the Unity Asset Store. I built the node-based editor and contributed to the animation and behaviour architecture.",
+      "meta": {
+        "Role": "Engineer & Technical Designer",
+        "Year": "2024",
+        "Tools": "Unity 2022.3, C#, URP",
+        "Team": "Six-person team at Carnegie Mellon ETC, advised by Dave Culyba and Tom Corbett",
+        "Asset Store": "<a href=\"https://assetstore.unity.com/packages/templates/systems/penguin-arpg-toolkit-302387\">Penguin ARPG Toolkit</a>",
+        "Project site": "<a href=\"https://projects.etc.cmu.edu/patpat/\">projects.etc.cmu.edu/patpat</a>"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "Action games have a deep, well-understood structure — move sets, actions, modifiers, cancel windows — but Unity gives you no scaffolding for any of it. Small teams end up rebuilding the same state handling from scratch and running out of time before the game feels good.",
+            "Penguin Action Toolkit provides that scaffolding, along with documentation, tutorials and sample content, so a designer can iterate on combat feel instead of on plumbing."
+          ]
+        },
+        {
+          "heading": "My contribution",
+          "list": [
+            "Designed and built the node-based GUI editor, modelled on the Unreal Engine Blueprint system, so that designers can author and read character behaviour visually.",
+            "Contributed to the architecture connecting character nodes, move sets, actions and modifiers.",
+            "Created character rigs and animations for the sample content shipped with the package."
+          ]
+        },
+        {
+          "heading": "Release",
+          "body": [
+            "The toolkit is published free on the Unity Asset Store for Unity 2022.3 and URP. The team ran a workshop and a game jam around it to test whether developers outside the project could pick it up from the documentation alone."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/pat-graph.png", "caption": "The node editor. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance." }
+      ]
+    },
+
+    {
+      "slug": "quadruped-rigging-tool",
+      "group": "tools",
+      "title": "Quadruped Rigging Toolset",
+      "role": "Sole author",
+      "year": "2024",
+      "tags": ["Maya", "Python", "Rigging"],
+      "summary": "A toolset for building quadruped rigs, reducing repeated manual setup across animals that share a skeletal structure but differ in proportion.",
+      "meta": {
+        "Role": "Sole author",
+        "Year": "2024",
+        "Tools": "Maya, Python"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "Quadrupeds share a common skeletal logic but vary enormously in proportion, and rebuilding the same spine, limb and foot systems per animal is slow. The toolset generalises the parts that stay constant so that what remains is the per-animal judgement.",
+            "PLACEHOLDER — expand this with the specific systems the tool builds and how it handles proportion differences between animals."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/quadruped-rig.png", "caption": "Horse rig with the generated control hierarchy." }
+      ]
+    },
+
+    {
+      "slug": "erosion-system",
+      "group": "tools",
+      "title": "Erosion System",
+      "role": "Sole author",
+      "year": "2023",
+      "tags": ["Unreal Engine", "Blueprint", "VFX"],
+      "summary": "A runtime erosion effect in Unreal Engine with a blueprint-driven control panel for switching between modes and driving the erosion percentage.",
+      "meta": {
+        "Role": "Sole author",
+        "Year": "2023",
+        "Tools": "Unreal Engine, Blueprint, Niagara"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "An in-editor control panel exposes three erosion modes and a live percentage readout, so the effect can be dialled in against the character in the viewport rather than through trial-and-error recompiles.",
+            "PLACEHOLDER — expand with how the erosion is driven (material, Niagara, mesh) and what the three modes differ in."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/erosion-ui.png", "caption": "Mode selection and live erosion percentage, driven from blueprint." }
+      ]
+    },
+
+    {
+      "slug": "character-rigs",
+      "group": "rigging",
+      "title": "Character Rigs",
+      "role": "Rigging",
+      "year": "2022 — 2025",
+      "tags": ["Maya", "FK/IK", "Unreal Engine"],
+      "summary": "A selection of biped rigs — stylised and realistic, for game and film pipelines — built with full FK/IK switching, space switching and animator-facing control layouts.",
+      "meta": {
+        "Role": "Rigging",
+        "Year": "2022 — 2025",
+        "Tools": "Maya, Unreal Engine"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "These rigs share one priority: the animator should never have to think about the rig. Controls sit where the hand goes, FK/IK switching is seamless, and naming is consistent enough that tools can be written against it.",
+            "PLACEHOLDER — introduce each rig individually below, and say what was distinct about each brief."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/rig-girl.png", "caption": "Stylised biped rig." },
+        { "src": "images/rig-assassin.png", "caption": "Game-ready character rig with full control hierarchy." },
+        { "src": "images/rig-humanoid.png", "caption": "Humanoid rig showing FK and IK control sets." }
+      ]
+    },
+
+    {
+      "slug": "creature-rigs",
+      "group": "rigging",
+      "title": "Creature Rigs",
+      "role": "Rigging",
+      "year": "2023 — 2024",
+      "tags": ["Maya", "Ribbon IK", "Quadruped"],
+      "summary": "Non-biped setups — a Chinese dragon, an eagle, and quadrupeds — where the deformation problem changes with every anatomy.",
+      "meta": {
+        "Role": "Rigging",
+        "Year": "2023 — 2024",
+        "Tools": "Maya, Unreal Engine, Unity"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "Creature work is where generic rigging solutions stop being enough. A dragon needs a long spine that reads as one continuous motion; a wing needs feather layers that stay coherent through a full flap cycle; a quadruped needs a shoulder that floats rather than pivots.",
+            "PLACEHOLDER — describe each setup and the specific problem it solved."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/rig-dragon.png", "caption": "Chinese dragon rig — continuous spine driven by ribbon IK." },
+        { "src": "images/rig-eagle.png", "caption": "Eagle rig built for Animal POV: Climate Challenge, with layered feather controls." }
+      ]
+    },
+
+    {
+      "slug": "ai-metahuman-pipeline",
+      "group": "rigging",
+      "title": "AI MetaHuman Pipeline",
+      "role": "Technical Artist",
+      "year": "2023",
+      "tags": ["MetaHuman", "Unreal Engine", "Pipeline"],
+      "summary": "Research into a production pipeline combining AI-generated inputs with Unreal Engine's MetaHuman system for digital character creation.",
+      "meta": {
+        "Role": "Technical Artist",
+        "Year": "2023",
+        "Tools": "Unreal Engine, MetaHuman, Maya, Marvelous Designer"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "PLACEHOLDER — describe what the pipeline takes as input, which stages are automated, and where a human still has to intervene. This is the page most likely to be read by people curious about your AI workflow consulting, so it is worth writing carefully."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/metahuman.png", "caption": "MetaHuman character produced through the pipeline." }
+      ]
+    },
+
+    {
+      "slug": "project-good-boy",
+      "group": "games",
+      "title": "Project Good Boy",
+      "role": "Founder & Developer, Erosoft Studio",
+      "year": "2025 — present",
+      "tags": ["Unreal Engine 5", "C++", "Blueprint", "In development"],
+      "summary": "A character-driven puzzle game in Unreal Engine 5. I handle art assets, character modelling, rigging, animation and gameplay programming.",
+      "meta": {
+        "Role": "Founder & Developer",
+        "Year": "2025 — present",
+        "Tools": "Unreal Engine 5, C++, Blueprint, Maya",
+        "Status": "In development, pre-release"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "PLACEHOLDER — one or two paragraphs on the premise and the puzzle mechanic. This is the first thing many visitors will look at, so it deserves the most attention of any page here.",
+            "Because this is a solo project, it is also the clearest demonstration that you can carry a game from modelling through rigging to gameplay code. Say that explicitly."
+          ]
+        },
+        {
+          "heading": "The dog controller",
+          "body": [
+            "A quadruped character controller built for the game, covering locomotion, foot placement on uneven ground, and the transitions between gaits.",
+            "PLACEHOLDER — expand with how the controller handles IK foot placement and gait blending."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/goodboy-dog.png", "caption": "The dog character in the test environment." }
+      ]
+    },
+
+    {
+      "slug": "kraken-unleashed",
+      "group": "games",
+      "title": "Kraken Unleashed",
+      "role": "Technical Artist",
+      "year": "2024",
+      "tags": ["Unreal Engine 5", "PBR", "Rigging", "VFX"],
+      "summary": "A semester-long PBR animation production in Unreal Engine 5. I built the creature rig and produced the accompanying animation, VFX and environment work.",
+      "meta": {
+        "Role": "Technical Artist",
+        "Year": "2024",
+        "Tools": "Unreal Engine 5, Maya, Substance",
+        "Context": "Advanced Pipeline Topics, Carnegie Mellon ETC"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "The kraken's tentacles are the whole problem. Eight long, tapering limbs need to deform smoothly along their length, curl convincingly at the tip, and stay art-directable rather than simulated — an animator has to be able to pose them.",
+            "I built the rig around ribbon IK, which is also what drove me to write the ribbon IK plugin listed under Tools: the manual setup was too slow to iterate at the pace the production needed."
+          ]
+        },
+        {
+          "heading": "Contribution",
+          "list": [
+            "Built and iterated the full creature rig through production.",
+            "Animated the creature and produced the accompanying VFX.",
+            "Built the underwater environment and lighting in Unreal Engine 5."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/kraken-env.jpg", "caption": "Shipwreck environment, lit in Unreal Engine 5." }
+      ]
+    },
+
+    {
+      "slug": "farlight-84",
+      "group": "games",
+      "title": "Farlight 84",
+      "role": "Technical Designer Intern, Lilith Games",
+      "year": "2021 — 2022",
+      "tags": ["Unreal Engine 4", "C++", "Blueprint", "Shipped"],
+      "summary": "A cross-platform mobile and PC shooter. As an intern I implemented and debugged gameplay mechanics and animation behaviour, and contributed to a new game mode.",
+      "meta": {
+        "Role": "Technical Designer Intern",
+        "Year": "November 2021 — February 2022",
+        "Studio": "Lilith Games, Shanghai",
+        "Tools": "Unreal Engine 4, C++, Blueprint"
+      },
+      "sections": [
+        {
+          "heading": "Contribution",
+          "list": [
+            "Implemented, optimised and debugged in-game mechanics and animation behaviour in UE4 Blueprint and C++.",
+            "Implemented in-game character animation and helped maintain the animation system.",
+            "Contributed to the design of a new game mode."
+          ]
+        },
+        {
+          "heading": "Note",
+          "body": [
+            "Farlight 84 is Lilith Games' title; my contribution was as an intern over roughly three months. The work shown here is limited to what is publicly released."
+          ]
+        }
+      ],
+      "figures": [
+        { "src": "images/farlight.jpg", "caption": "In-game capture, Farlight 84." }
+      ]
+    },
+
+    {
+      "slug": "silt-symphony",
+      "group": "art",
+      "title": "Silt Symphony",
+      "role": "Artist",
+      "year": "2023",
+      "tags": ["Digital Installation", "Exhibited"],
+      "summary": "A digital installation shown in the Spring Undergraduate Exhibition at SAIC Galleries, Chicago.",
+      "meta": {
+        "Role": "Artist",
+        "Year": "2023",
+        "Exhibition": "Spring Undergraduate Exhibition, April 7–15, 2023",
+        "Venue": "SAIC Galleries, 33 E. Washington St., Chicago",
+        "Documentation": "<a href=\"https://www.youtube.com/watch?v=Ch0Z9n4zCUY\">Video documentation</a>"
+      },
+      "sections": [
+        {
+          "heading": "About the work",
+          "body": [
+            "PLACEHOLDER — write two or three paragraphs about the work: what it is, what it was made with, and what it is about. Written in the register of an artist statement rather than a production breakdown.",
+            "This is the one page on the site that shows a different side of your practice, so it is worth not treating it as a technical credit."
+          ]
+        }
+      ],
+      "embed": "https://www.youtube.com/embed/Ch0Z9n4zCUY",
+      "figures": []
+    }
+  ]
+}
