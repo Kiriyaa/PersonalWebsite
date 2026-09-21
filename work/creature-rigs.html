@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Creature Rigs — Minghao Zhou</title>
-<meta name="description" content="Non-biped setups — a Chinese dragon, an eagle, and quadrupeds — where the deformation problem changes with every anatomy.">
+<meta name="description" content="Non-biped setups — a kraken, an eagle and a Chinese dragon — where the deformation problem changes with every anatomy.">
 <meta property="og:title" content="Creature Rigs — Minghao Zhou">
-<meta property="og:description" content="Non-biped setups — a Chinese dragon, an eagle, and quadrupeds — where the deformation problem changes with every anatomy.">
+<meta property="og:description" content="Non-biped setups — a kraken, an eagle and a Chinese dragon — where the deformation problem changes with every anatomy.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,32 +29,26 @@
     <div class="wrap">
       <a class="backlink" href="../index.html">&larr; All work</a>
       <h1>Creature Rigs</h1>
-      <p class="summary">Non-biped setups — a Chinese dragon, an eagle, and quadrupeds — where the deformation problem changes with every anatomy.</p>
+      <p class="summary">Non-biped setups — a kraken, an eagle and a Chinese dragon — where the deformation problem changes with every anatomy.</p>
       <dl class="meta"><div><dt>Role</dt><dd>Rigging</dd></div><div><dt>Year</dt><dd>2023 — 2024</dd></div><div><dt>Tools</dt><dd>Maya, Unreal Engine, Unity</dd></div></dl>
     </div>
   </section>
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Creature Rigs</strong>
-        <code>&quot;embed&quot; on creature-rigs in projects.json</code>
-      </div>
-      <figure>
-        <img src="../images/rig-dragon.png" alt="Chinese dragon rig — continuous spine driven by ribbon IK." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/rig-dragon.png&lt;/div&gt;'">
-        <figcaption>Chinese dragon rig — continuous spine driven by ribbon IK.</figcaption>
-      </figure>
-      <figure>
-        <img src="../images/rig-eagle.png" alt="Eagle rig built for Animal POV: Climate Challenge, with layered feather controls." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/rig-eagle.png&lt;/div&gt;'">
-        <figcaption>Eagle rig built for Animal POV: Climate Challenge, with layered feather controls.</figcaption>
-      </figure>
+
+
       <div class="prose">
       <h2>Overview</h2>
-      <p>Creature work is where generic rigging solutions stop being enough. A dragon needs a long spine that reads as one continuous motion; a wing needs feather layers that stay coherent through a full flap cycle; a quadruped needs a shoulder that floats rather than pivots.</p>
-      <p>PLACEHOLDER — describe each setup and the specific problem it solved.</p>
+      <p>Creature work is where generic rigging solutions stop being enough. A kraken needs many tentacles that all move as continuous, flexible curves; a wing needs a skeleton that folds and spreads like the real thing; a dragon needs a long spine that reads as one continuous motion.</p>
+      <h2>Kraken</h2>
+      <p>I used the ribbon IK method to procedurally generate the rig for every tentacle, and that work eventually became the <a href="ribbon-ik-plugin.html">Ribbon IK Plugin</a>.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1013971260" title="Kraken Rig" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Eagle</h2>
+      <p>Built for a semester-long school project. It got me familiar with animal rigs, especially how bird wings work and how to achieve that behaviour with a skeleton.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1013971447" title="Eagle Rig Demo" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Chinese dragon</h2>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228901159" title="Chinese Dragon Rig" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
       </div>
       <div class="pager"><a href="character-rigs.html"><span class="label">Previous</span>Character Rigs</a><a href="ai-metahuman-pipeline.html" style="text-align:right"><span class="label">Next</span>AI MetaHuman Pipeline</a></div>
     </div>

@@ -154,17 +154,38 @@
           "heading": "Overview",
           "body": [
             "Quadrupeds share a common skeletal logic but vary enormously in proportion, and rebuilding the same spine, limb and foot systems per animal is slow. The toolset generalises the parts that stay constant so that what remains is the per-animal judgement.",
-            "PLACEHOLDER — expand this with the specific systems the tool builds and how it handles proportion differences between animals."
+            "The workflow has two steps. First, the tool creates a guide that is placed to match the animal's proportions. Then a single build operation generates the rig from that guide, so the only per-animal work is fitting the guide and adjusting a handful of options."
+          ]
+        },
+        {
+          "heading": "What it builds",
+          "list": [
+            "A spine with a configurable number of controllers, so a long-backed animal and a compact one can each get the density of control they need.",
+            "A tail with its own controller count, plus optional blendshape-driven secondary motion — up/down and left/right sine waves, and reel — so the tail can move without hand-animating every control.",
+            "Front limbs, rear limbs, head and tail, each set up to follow the part of the body they hang from."
+          ]
+        },
+        {
+          "heading": "The following system",
+          "body": [
+            "Most of what makes a quadruped read as a single animal is how the parts inherit motion from each other. The toolset exposes this as four independent toggles: front limbs follow the spine, rear limbs follow the hip, the head follows the neck, and the tail follows the hip.",
+            "Keeping these as options rather than fixed behaviour means the same tool covers an animal whose head should be driven by the neck and one whose head needs to stay independent, without a separate rig template for each."
+          ]
+        },
+        {
+          "heading": "Notes",
+          "body": [
+            "As with my <a href=\"ribbon-ik-plugin.html\">Ribbon IK Plugin</a>, the interface is a single plain panel with every option visible at once, and the defaults produce a usable rig without changing anything. The build can also be run in stages rather than all at once, so a rig can be regenerated after adjusting the guide without redoing the parts that were already right."
           ]
         }
       ],
       "figures": [
         {
           "src": "images/quadruped-rig.png",
-          "caption": "Horse rig with the generated control hierarchy."
+          "caption": "The build panel. Guide creation, spine and tail controller counts, the following-system toggles and the build mode are all on one screen."
         }
       ],
-      "embed": ""
+      "embed": "https://player.vimeo.com/video/1163076403"
     },
     {
       "slug": "erosion-system",
@@ -222,24 +243,68 @@
           "heading": "Overview",
           "body": [
             "These rigs share one priority: the animator should never have to think about the rig. Controls sit where the hand goes, FK/IK switching is seamless, and naming is consistent enough that tools can be written against it.",
-            "PLACEHOLDER — introduce each rig individually below, and say what was distinct about each brief."
+            "Below are four characters from that body of work: an assassin, a stylised girl with a separate facial rig, an alien, and a swordsman. Each is shown in motion so the rig can be judged by how it behaves, not by how it looks in a screenshot."
+          ]
+        },
+        {
+          "heading": "Assassin",
+          "body": [
+            "A complete character rig, finished in one month using the mGear framework. I built a dynamic cloth system driven by RBF and corrective blendshapes, and came away with a working command of mGear and of a complex rigging pipeline. To test the rig I modified a motion-capture animation and applied it to the character. The clips show the finished rig and a closer look at its details."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1013971294",
+              "title": "Assassin Rig"
+            },
+            {
+              "url": "https://player.vimeo.com/video/1228662541",
+              "title": "Assassin Rig Details"
+            }
+          ]
+        },
+        {
+          "heading": "Stylised girl",
+          "body": [
+            "A stylised biped, shown with a body rig demo and, separately, the face rig, so the facial controls can be judged on their own rather than lost inside a full-body shot."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1013969884",
+              "title": "Girl Rig Demo"
+            },
+            {
+              "url": "https://player.vimeo.com/video/1013970328",
+              "title": "Girl Face Rig"
+            }
+          ]
+        },
+        {
+          "heading": "Alien",
+          "body": [
+            "A practice rig built by following <a href=\"https://www.youtube.com/watch?v=DO6RztqbwzA\">AntCGI's tutorial</a>. Working through it taught me how to set up IK stretch and shrink and a complex space-swap system, and made me much more comfortable with Maya's Node Editor and attribute setup."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/941403587",
+              "title": "Alien Rig"
+            }
+          ]
+        },
+        {
+          "heading": "Swordman",
+          "body": [
+            "For this character I implemented weapon attachment, facial controls, and low-cost cloth and hair controls suited to mobile platforms."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/941406621",
+              "title": "Swordman"
+            }
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/rig-girl.png",
-          "caption": "Stylised biped rig."
-        },
-        {
-          "src": "images/rig-assassin.png",
-          "caption": "Game-ready character rig with full control hierarchy."
-        },
-        {
-          "src": "images/rig-humanoid.png",
-          "caption": "Humanoid rig showing FK and IK control sets."
-        }
-      ],
+      "thumb": "images/rig-assassin.png",
+      "figures": [],
       "embed": ""
     },
     {
@@ -251,9 +316,9 @@
       "tags": [
         "Maya",
         "Ribbon IK",
-        "Quadruped"
+        "Creature"
       ],
-      "summary": "Non-biped setups — a Chinese dragon, an eagle, and quadrupeds — where the deformation problem changes with every anatomy.",
+      "summary": "Non-biped setups — a kraken, an eagle and a Chinese dragon — where the deformation problem changes with every anatomy.",
       "meta": {
         "Role": "Rigging",
         "Year": "2023 — 2024",
@@ -263,21 +328,45 @@
         {
           "heading": "Overview",
           "body": [
-            "Creature work is where generic rigging solutions stop being enough. A dragon needs a long spine that reads as one continuous motion; a wing needs feather layers that stay coherent through a full flap cycle; a quadruped needs a shoulder that floats rather than pivots.",
-            "PLACEHOLDER — describe each setup and the specific problem it solved."
+            "Creature work is where generic rigging solutions stop being enough. A kraken needs many tentacles that all move as continuous, flexible curves; a wing needs a skeleton that folds and spreads like the real thing; a dragon needs a long spine that reads as one continuous motion."
+          ]
+        },
+        {
+          "heading": "Kraken",
+          "body": [
+            "I used the ribbon IK method to procedurally generate the rig for every tentacle, and that work eventually became the <a href=\"ribbon-ik-plugin.html\">Ribbon IK Plugin</a>."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1013971260",
+              "title": "Kraken Rig"
+            }
+          ]
+        },
+        {
+          "heading": "Eagle",
+          "body": [
+            "Built for a semester-long school project. It got me familiar with animal rigs, especially how bird wings work and how to achieve that behaviour with a skeleton."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1013971447",
+              "title": "Eagle Rig Demo"
+            }
+          ]
+        },
+        {
+          "heading": "Chinese dragon",
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228901159",
+              "title": "Chinese Dragon Rig"
+            }
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/rig-dragon.png",
-          "caption": "Chinese dragon rig — continuous spine driven by ribbon IK."
-        },
-        {
-          "src": "images/rig-eagle.png",
-          "caption": "Eagle rig built for Animal POV: Climate Challenge, with layered feather controls."
-        }
-      ],
+      "thumb": "images/rig-kraken.png",
+      "figures": [],
       "embed": ""
     },
     {
@@ -291,26 +380,139 @@
         "Unreal Engine",
         "Pipeline"
       ],
-      "summary": "Research into a production pipeline combining AI-generated inputs with Unreal Engine's MetaHuman system for digital character creation.",
+      "summary": "A pipeline that takes an AI-generated base mesh through ZBrush sculpting, topology-preserving transfer in Maya and XGen grooming into a rigged, animation-ready UE5 MetaHuman.",
       "meta": {
         "Role": "Technical Artist",
         "Year": "2023",
-        "Tools": "Unreal Engine, MetaHuman, Maya, Marvelous Designer"
+        "Tools": "Maya, ZBrush, Mari, Substance Painter, Unreal Engine 5"
       },
       "sections": [
         {
           "heading": "Overview",
           "body": [
-            "PLACEHOLDER — describe what the pipeline takes as input, which stages are automated, and where a human still has to intervene. This is the page most likely to be read by people curious about your AI workflow consulting, so it is worth writing carefully."
+            "Building a production-quality digital human from scratch is slow, and most of the time goes into modelling, rigging and skinning before a character can be tested at all. This pipeline explores how AI-generated geometry can shorten that path without giving up control over the result.",
+            "The key constraint is topology. The AI stage produces a base mesh that already follows MetaHuman topology, so once the mesh has been sculpted it can be transferred onto the MetaHuman preset model, which lets the new character inherit the existing rig and skin data instead of being rebuilt. Everything after the AI stage is artist-directed."
+          ]
+        },
+        {
+          "heading": "1. Reference",
+          "body": [
+            "Gather the reference imagery that defines the character's design, proportions and facial features, taken from a range of angles and expressions."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-01.png",
+              "caption": "Reference images collected for the character, covering front, three-quarter and profile views."
+            }
+          ]
+        },
+        {
+          "heading": "2. Base mesh",
+          "body": [
+            "Generate a base mesh with Hyper3D that already follows MetaHuman topology. This is what makes the rest of the pipeline possible."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-02.png",
+              "caption": "Base mesh generated by Hyper3D with MetaHuman topology."
+            }
+          ]
+        },
+        {
+          "heading": "3. Sculpting",
+          "body": [
+            "Refine the mesh in ZBrush, adding detail and correcting the likeness while keeping the original topology intact."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-03.png",
+              "caption": "The mesh after detailed sculpting in ZBrush, with the original topology preserved. Front view."
+            },
+            {
+              "src": "images/metahuman-04.png",
+              "caption": "Three-quarter view of the same sculpt. The edge flow around the eyes, nose and mouth is unchanged from the base mesh."
+            }
+          ]
+        },
+        {
+          "heading": "4. Transfer",
+          "body": [
+            "Import the sculpted mesh into Maya and transfer its vertex data onto the MetaHuman preset model. The preset keeps its rig and skin data, so the new character inherits them without re-rigging or re-skinning. Export the result as MetaHuman DNA for Unreal Engine 5."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-05.png",
+              "caption": "The sculpted head on the MetaHuman preset in Maya, inheriting its body rig and facial control panel."
+            }
+          ]
+        },
+        {
+          "heading": "5. Hair groom",
+          "body": [
+            "Author groom guides in Maya with XGen to generate the hair, brows and beard."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-06.png",
+              "caption": "Groom guides for the hair, eyebrows and beard, authored in Maya with XGen."
+            },
+            {
+              "src": "images/metahuman-07.png",
+              "caption": "Hair generated from the guides, with the guides still displayed over the result."
+            }
+          ]
+        },
+        {
+          "heading": "6. Body assembly",
+          "body": [
+            "Repeat the same process for the body, connect it to the head, and export the MetaHuman DNA into UE5 using the plugin."
+          ]
+        },
+        {
+          "heading": "Where the artist stays in control",
+          "body": [
+            "The AI step only supplies a starting point. Judgement stays with the artist at every stage after it: sculpting for likeness and character, checking the transfer, and directing the groom. The AI contributes speed to a first mesh, and MetaHuman-compatible topology means the expensive rigging and skinning work is inherited rather than repeated."
+          ]
+        },
+        {
+          "heading": "Final result",
+          "body": [
+            "The finished character in Unreal Engine 5, rendered under different lighting and framing."
+          ],
+          "figures": [
+            {
+              "src": "images/metahuman-capture-1.jpg",
+              "caption": "Low-key portrait lighting, showing the groomed hair and beard on the finished character."
+            },
+            {
+              "src": "images/metahuman-capture-2.jpg",
+              "caption": "Close-up of the same setup, showing skin detail, brows and the beard groom."
+            },
+            {
+              "src": "images/metahuman-capture-3.jpg",
+              "caption": "Front view with neutral studio lighting."
+            },
+            {
+              "src": "images/metahuman-capture-4.jpg",
+              "caption": "Full-body A-pose with the assembled body, clothing and hair."
+            }
+          ]
+        },
+        {
+          "heading": "Facial capture test",
+          "body": [
+            "As a final test of the result, the finished character was driven with facial capture."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228905601",
+              "title": "AI-Metahuman Facial Capture"
+            }
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/metahuman.png",
-          "caption": "MetaHuman character produced through the pipeline."
-        }
-      ],
+      "thumb": "images/metahuman-capture-3.jpg",
+      "figures": [],
       "embed": ""
     },
     {
@@ -336,25 +538,47 @@
         {
           "heading": "Overview",
           "body": [
-            "PLACEHOLDER — one or two paragraphs on the premise and the puzzle mechanic. This is the first thing many visitors will look at, so it deserves the most attention of any page here.",
-            "Because this is a solo project, it is also the clearest demonstration that you can carry a game from modelling through rigging to gameplay code. Say that explicitly."
+            "Good Boy (working title) is a puzzle-solving dog simulator. You wake as a dog in a streamer's bedroom with human intent and animal tools — no hands, only paws, weight, teeth and bark — and the only way out is to solve the room before she notices. Every locked drawer and high shelf becomes a problem of physics and timing, and the streamer who owns the room is both the obstacle and the clock.",
+            "The game runs on a repeating daily cycle: free exploration in the morning, supervision before the broadcast, real risk while she is live, then consequences and a reset at night. Hidden values track suspicion, affection and dream stability, and pushing too far ejects you from the loop.",
+            "It is a solo project, so it covers the whole path from modelling, rigging and animation through to gameplay code in C++ and Blueprint."
           ]
         },
         {
           "heading": "The dog controller",
           "body": [
-            "A quadruped character controller built for the game, covering locomotion, foot placement on uneven ground, and the transitions between gaits.",
-            "PLACEHOLDER — expand with how the controller handles IK foot placement and gait blending."
+            "The central technical problem is that a long-bodied quadruped does not fit Unreal's upright, capsule-based character model. The controller is a bespoke C++ layer over Character Movement, built around that mismatch.",
+            "Locomotion is driven by Motion Matching rather than a hand-built state machine. Control Rig foot IK with per-foot locking removes the sliding that Motion Matching leaves during low-speed turns, and lets the front and rear feet find the floor independently on slopes and steps. Because secondary collision volumes do not push the root capsule, head clipping is handled with predictive sweeps before each move."
+          ]
+        },
+        {
+          "heading": "Production timeline",
+          "body": [
+            "Development is documented in a 36-week log, grouped into eleven phases. The target is a ten-minute vertical slice: one room, one heroine, a handful of polished dog interactions and a single complete loop that ends on a narrative beat."
+          ],
+          "list": [
+            "<strong>Weeks 1–3 · Nov — Finding the Dog.</strong> Settled the core fantasy, the single-room setting and the dog's limited set of verbs.",
+            "<strong>Weeks 4–6 · Nov–Dec — Building the Body.</strong> First contact with Unreal: the bespoke controller on Character Movement, and the decision to commit to Motion Matching.",
+            "<strong>Weeks 7–9 · Dec–Jan — The Room as a Puzzle Box.</strong> Narrowed the scope to a short bedroom experience, defined the streamer's daily schedule and drafted the system architecture.",
+            "<strong>Weeks 10–13 · Jan — Making the Dog Move.</strong> Motion Matching locomotion, rotation and camera behaviour, jump and fall logic, and the five-phase dream loop.",
+            "<strong>Weeks 14–17 · Feb — Bringing the World to Life.</strong> Idle variety, a NavMesh-driven heroine, grooms, in-room screens and ambient animation.",
+            "<strong>Weeks 19–21 · Mar — Polish and Structure.</strong> Custom camera collision, the limits of capsule collision, and a single diagram of the whole architecture.",
+            "<strong>Weeks 22–25 · Mar–Apr — Learning from Other Animals.</strong> Research into horse controllers and animal collision that fed back into the dog, and the decision to target a ten-minute slice.",
+            "<strong>Weeks 28–29 · May — Shaping the Demo.</strong> Consolidated the game's identity and defined the flow of the slice.",
+            "<strong>Week 30 · May — Interaction and Event Triggers.</strong> An interface-based interaction framework and overlap triggers that turn the room into a solvable puzzle.",
+            "<strong>Weeks 31–33 · Jun — Wiring the Loop.</strong> The heroine's perception and suspicion system, the first complete puzzle, and the full day-phase loop with night reset.",
+            "<strong>Weeks 34–36 · Jun–Jul — First Playable.</strong> Assembled the slice end to end, added foot locking and camera polish, and ran the first structured playtest."
+          ]
+        },
+        {
+          "heading": "Current status",
+          "body": [
+            "The slice is playable start to finish and runs nine to twelve minutes. In the first playtest, testers understood being a dog immediately and reacted well to the moment of slipping past the heroine while she is distracted. The main finding is that suspicion needs a readable in-world signal, so being caught does not feel arbitrary, and that is the next design problem."
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/goodboy-dog.png",
-          "caption": "The dog character in the test environment."
-        }
-      ],
-      "embed": ""
+      "thumb": "images/goodboy_1.png",
+      "figures": [],
+      "embed": "https://player.vimeo.com/video/1228703706"
     },
     {
       "slug": "kraken-unleashed",
@@ -368,27 +592,36 @@
         "Rigging",
         "VFX"
       ],
-      "summary": "A semester-long PBR animation production in Unreal Engine 5. I built the creature rig and produced the accompanying animation, VFX and environment work.",
+      "summary": "A three-month team PBR animation production in Unreal Engine 5, entered in The Rookies Award 2024. I handled rigging, animation, directing, VFX, post-process and the environment.",
       "meta": {
         "Role": "Technical Artist",
         "Year": "2024",
         "Tools": "Unreal Engine 5, Maya, Substance",
-        "Context": "Advanced Pipeline Topics, Carnegie Mellon ETC"
+        "Context": "Advanced Pipeline Topics, Carnegie Mellon ETC",
+        "Team": "Team project, three months",
+        "Award": "<a href=\"https://www.therookies.co/entries/31194\">The Rookies Award 2024 entry</a>"
       },
       "sections": [
         {
           "heading": "Overview",
           "body": [
             "The kraken's tentacles are the whole problem. Eight long, tapering limbs need to deform smoothly along their length, curl convincingly at the tip, and stay art-directable rather than simulated — an animator has to be able to pose them.",
-            "I built the rig around ribbon IK, which is also what drove me to write the ribbon IK plugin listed under Tools: the manual setup was too slow to iterate at the pace the production needed."
+            "I built the rig around ribbon IK. Doing that setup by hand for every tentacle showed how much of it was repetitive, and after the project I turned the process into the <a href=\"ribbon-ik-plugin.html\">Ribbon IK Plugin</a>.",
+            "The project was a team production finished in three months and entered in <a href=\"https://www.therookies.co/entries/31194\">The Rookies Award 2024</a>."
           ]
         },
         {
           "heading": "Contribution",
           "list": [
-            "Built and iterated the full creature rig through production.",
-            "Animated the creature and produced the accompanying VFX.",
-            "Built the underwater environment and lighting in Unreal Engine 5."
+            "Rigging: built and iterated the full creature rig through production.",
+            "Animation and directing: animated the creature and directed the piece.",
+            "VFX, post-process and the environment, all in Unreal Engine 5."
+          ]
+        },
+        {
+          "heading": "What I took from it",
+          "body": [
+            "The project gave me hands-on experience with complex model rigging, and with cutting repetitive work by replacing manual steps with procedural solutions. The tentacle rig is where that approach started, and it is the origin of my Ribbon IK plugin for Maya."
           ]
         }
       ],
@@ -398,7 +631,7 @@
           "caption": "Shipwreck environment, lit in Unreal Engine 5."
         }
       ],
-      "embed": ""
+      "embed": "https://www.youtube.com/embed/QkUXbjfxBmU"
     },
     {
       "slug": "farlight-84",

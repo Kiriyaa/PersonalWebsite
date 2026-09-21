@@ -132,9 +132,8 @@ a{color:inherit}
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
 }
-.thumb img{width:100%;height:100%;object-fit:cover}
-/* for tall/narrow art (UI screenshots): show it whole, centred in the slot */
-.thumb.fit img{object-fit:contain;padding:12px}
+/* always show the whole image, scaled down and centred in the slot (never cropped) */
+.thumb img{width:100%;height:100%;object-fit:contain;padding:12px}
 .thumb .ph{font-family:var(--mono);font-size:10.5px;color:var(--fg-3);letter-spacing:.05em;padding:10px;text-align:center}
 /* the filename label is a fallback only — once the image loads it must not sit beside it.
    onerror removes the img, which un-matches this rule and brings the label back. */
@@ -174,9 +173,8 @@ a{color:inherit}
 .prose a{color:var(--accent)}
 
 figure{margin:34px 0}
-figure img{border:1px solid var(--line-soft);border-radius:var(--radius);width:100%}
-/* natural = render at the file's own pixel size, still capped on narrow screens */
-figure img.natural{width:auto;max-width:100%;margin-inline:auto}
+/* render at the file's own pixel size, still capped on narrow screens */
+figure img{display:block;border:1px solid var(--line-soft);border-radius:var(--radius);width:auto;max-width:100%;height:auto;margin-inline:auto}
 figure .ph{
   aspect-ratio:16/9;background:var(--bg-2);border:1px dashed var(--line);
   border-radius:var(--radius);display:flex;align-items:center;justify-content:center;

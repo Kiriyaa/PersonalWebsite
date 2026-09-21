@@ -103,6 +103,7 @@ def video_block(url, slot_ref, hint, title="Video"):
     if url:
         return (f'<div class="embed"><iframe src="{esc(url)}" title="{esc(title)}" '
                 f'allowfullscreen loading="lazy" '
+                f'referrerpolicy="strict-origin-when-cross-origin" '
                 f'allow="accelerometer; autoplay; clipboard-write; encrypted-media; '
                 f'gyroscope; picture-in-picture"></iframe></div>')
     return f"""<div class="video-ph">
@@ -115,11 +116,10 @@ def video_block(url, slot_ref, hint, title="Video"):
 def thumb(p, depth=0):
     up = "../" * depth
     figs = p.get("figures") or []
-    if figs:
-        src = figs[0]["src"]
-        # "natural" marks tall/narrow art (UI screenshots) that a cover crop would ruin
-        fit = " fit" if figs[0].get("natural") else ""
-        return (f'<div class="thumb{fit}">'
+    # "thumb" lets a card use an image that is not shown on the project page
+    src = p.get("thumb") or (figs[0]["src"] if figs else "")
+    if src:
+        return (f'<div class="thumb">'
                 f'<img src="{up}{esc(src)}" alt="{esc(p["title"])}" loading="lazy" '
                 f'onerror="this.remove()">'
                 f'<div class="ph">{esc(src)}</div></div>')
@@ -217,6 +217,12 @@ def render_sections(secs):
         if s.get("list"):
             items = "".join(f"<li>{i}</li>" for i in s["list"])
             out.append(f"<ul>{items}</ul>")
+        for e in s.get("embeds", []):
+            out.append(video_block(e["url"], "", "", e.get("title", "Video")))
+        if s.get("figures"):
+            # step out of the narrow text column so images get the full page width
+            out.append('</div>\n      ' + render_figures(s["figures"])
+                       + '\n      <div class="prose">')
     return "\n      ".join(out)
 
 
@@ -239,10 +245,15 @@ def build_project(p, prev_p, next_p):
     meta_rows = "".join(
         f"<div><dt>{esc(k)}</dt><dd>{v}</dd></div>" for k, v in p.get("meta", {}).items())
 
-    embed = video_block(p.get("embed", ""),
-                        f'"embed" on {p["slug"]} in projects.json',
-                        f'Video slot — {p["title"]}',
-                        p["title"])
+    # pages whose videos live inside sections don't need the empty top-of-page slot
+    has_section_videos = any(s.get("embeds") for s in p.get("sections", []))
+    if p.get("embed") or not has_section_videos:
+        embed = video_block(p.get("embed", ""),
+                            f'"embed" on {p["slug"]} in projects.json',
+                            f'Video slot — {p["title"]}',
+                            p["title"])
+    else:
+        embed = ""
 
     pager = []
     if prev_p:

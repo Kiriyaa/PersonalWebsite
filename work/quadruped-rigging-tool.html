@@ -36,20 +36,23 @@
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Quadruped Rigging Toolset</strong>
-        <code>&quot;embed&quot; on quadruped-rigging-tool in projects.json</code>
-      </div>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1163076403" title="Quadruped Rigging Toolset" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
       <figure>
-        <img src="../images/quadruped-rig.png" alt="Horse rig with the generated control hierarchy." loading="lazy"
+        <img src="../images/quadruped-rig.png" alt="The build panel. Guide creation, spine and tail controller counts, the following-system toggles and the build mode are all on one screen." loading="lazy"
              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/quadruped-rig.png&lt;/div&gt;'">
-        <figcaption>Horse rig with the generated control hierarchy.</figcaption>
+        <figcaption>The build panel. Guide creation, spine and tail controller counts, the following-system toggles and the build mode are all on one screen.</figcaption>
       </figure>
       <div class="prose">
       <h2>Overview</h2>
       <p>Quadrupeds share a common skeletal logic but vary enormously in proportion, and rebuilding the same spine, limb and foot systems per animal is slow. The toolset generalises the parts that stay constant so that what remains is the per-animal judgement.</p>
-      <p>PLACEHOLDER — expand this with the specific systems the tool builds and how it handles proportion differences between animals.</p>
+      <p>The workflow has two steps. First, the tool creates a guide that is placed to match the animal's proportions. Then a single build operation generates the rig from that guide, so the only per-animal work is fitting the guide and adjusting a handful of options.</p>
+      <h2>What it builds</h2>
+      <ul><li>A spine with a configurable number of controllers, so a long-backed animal and a compact one can each get the density of control they need.</li><li>A tail with its own controller count, plus optional blendshape-driven secondary motion — up/down and left/right sine waves, and reel — so the tail can move without hand-animating every control.</li><li>Front limbs, rear limbs, head and tail, each set up to follow the part of the body they hang from.</li></ul>
+      <h2>The following system</h2>
+      <p>Most of what makes a quadruped read as a single animal is how the parts inherit motion from each other. The toolset exposes this as four independent toggles: front limbs follow the spine, rear limbs follow the hip, the head follows the neck, and the tail follows the hip.</p>
+      <p>Keeping these as options rather than fixed behaviour means the same tool covers an animal whose head should be driven by the neck and one whose head needs to stay independent, without a separate rig template for each.</p>
+      <h2>Notes</h2>
+      <p>As with my <a href="ribbon-ik-plugin.html">Ribbon IK Plugin</a>, the interface is a single plain panel with every option visible at once, and the defaults produce a usable rig without changing anything. The build can also be run in stages rather than all at once, so a rig can be regenerated after adjusting the guide without redoing the parts that were already right.</p>
       </div>
       <div class="pager"><a href="penguin-action-toolkit.html"><span class="label">Previous</span>Penguin Action Toolkit</a><a href="erosion-system.html" style="text-align:right"><span class="label">Next</span>Erosion System</a></div>
     </div>

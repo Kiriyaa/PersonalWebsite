@@ -36,30 +36,26 @@
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Character Rigs</strong>
-        <code>&quot;embed&quot; on character-rigs in projects.json</code>
-      </div>
-      <figure>
-        <img src="../images/rig-girl.png" alt="Stylised biped rig." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/rig-girl.png&lt;/div&gt;'">
-        <figcaption>Stylised biped rig.</figcaption>
-      </figure>
-      <figure>
-        <img src="../images/rig-assassin.png" alt="Game-ready character rig with full control hierarchy." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/rig-assassin.png&lt;/div&gt;'">
-        <figcaption>Game-ready character rig with full control hierarchy.</figcaption>
-      </figure>
-      <figure>
-        <img src="../images/rig-humanoid.png" alt="Humanoid rig showing FK and IK control sets." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/rig-humanoid.png&lt;/div&gt;'">
-        <figcaption>Humanoid rig showing FK and IK control sets.</figcaption>
-      </figure>
+
+
       <div class="prose">
       <h2>Overview</h2>
       <p>These rigs share one priority: the animator should never have to think about the rig. Controls sit where the hand goes, FK/IK switching is seamless, and naming is consistent enough that tools can be written against it.</p>
-      <p>PLACEHOLDER — introduce each rig individually below, and say what was distinct about each brief.</p>
+      <p>Below are four characters from that body of work: an assassin, a stylised girl with a separate facial rig, an alien, and a swordsman. Each is shown in motion so the rig can be judged by how it behaves, not by how it looks in a screenshot.</p>
+      <h2>Assassin</h2>
+      <p>A complete character rig, finished in one month using the mGear framework. I built a dynamic cloth system driven by RBF and corrective blendshapes, and came away with a working command of mGear and of a complex rigging pipeline. To test the rig I modified a motion-capture animation and applied it to the character. The clips show the finished rig and a closer look at its details.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1013971294" title="Assassin Rig" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228662541" title="Assassin Rig Details" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Stylised girl</h2>
+      <p>A stylised biped, shown with a body rig demo and, separately, the face rig, so the facial controls can be judged on their own rather than lost inside a full-body shot.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1013969884" title="Girl Rig Demo" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1013970328" title="Girl Face Rig" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Alien</h2>
+      <p>A practice rig built by following <a href="https://www.youtube.com/watch?v=DO6RztqbwzA">AntCGI's tutorial</a>. Working through it taught me how to set up IK stretch and shrink and a complex space-swap system, and made me much more comfortable with Maya's Node Editor and attribute setup.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/941403587" title="Alien Rig" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Swordman</h2>
+      <p>For this character I implemented weapon attachment, facial controls, and low-cost cloth and hair controls suited to mobile platforms.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/941406621" title="Swordman" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
       </div>
       <div class="pager"><a href="erosion-system.html"><span class="label">Previous</span>Erosion System</a><a href="creature-rigs.html" style="text-align:right"><span class="label">Next</span>Creature Rigs</a></div>
     </div>

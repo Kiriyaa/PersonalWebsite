@@ -36,23 +36,21 @@
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Project Good Boy</strong>
-        <code>&quot;embed&quot; on project-good-boy in projects.json</code>
-      </div>
-      <figure>
-        <img src="../images/goodboy-dog.png" alt="The dog character in the test environment." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/goodboy-dog.png&lt;/div&gt;'">
-        <figcaption>The dog character in the test environment.</figcaption>
-      </figure>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228703706" title="Project Good Boy" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
       <div class="prose">
       <h2>Overview</h2>
-      <p>PLACEHOLDER — one or two paragraphs on the premise and the puzzle mechanic. This is the first thing many visitors will look at, so it deserves the most attention of any page here.</p>
-      <p>Because this is a solo project, it is also the clearest demonstration that you can carry a game from modelling through rigging to gameplay code. Say that explicitly.</p>
+      <p>Good Boy (working title) is a puzzle-solving dog simulator. You wake as a dog in a streamer's bedroom with human intent and animal tools — no hands, only paws, weight, teeth and bark — and the only way out is to solve the room before she notices. Every locked drawer and high shelf becomes a problem of physics and timing, and the streamer who owns the room is both the obstacle and the clock.</p>
+      <p>The game runs on a repeating daily cycle: free exploration in the morning, supervision before the broadcast, real risk while she is live, then consequences and a reset at night. Hidden values track suspicion, affection and dream stability, and pushing too far ejects you from the loop.</p>
+      <p>It is a solo project, so it covers the whole path from modelling, rigging and animation through to gameplay code in C++ and Blueprint.</p>
       <h2>The dog controller</h2>
-      <p>A quadruped character controller built for the game, covering locomotion, foot placement on uneven ground, and the transitions between gaits.</p>
-      <p>PLACEHOLDER — expand with how the controller handles IK foot placement and gait blending.</p>
+      <p>The central technical problem is that a long-bodied quadruped does not fit Unreal's upright, capsule-based character model. The controller is a bespoke C++ layer over Character Movement, built around that mismatch.</p>
+      <p>Locomotion is driven by Motion Matching rather than a hand-built state machine. Control Rig foot IK with per-foot locking removes the sliding that Motion Matching leaves during low-speed turns, and lets the front and rear feet find the floor independently on slopes and steps. Because secondary collision volumes do not push the root capsule, head clipping is handled with predictive sweeps before each move.</p>
+      <h2>Production timeline</h2>
+      <p>Development is documented in a 36-week log, grouped into eleven phases. The target is a ten-minute vertical slice: one room, one heroine, a handful of polished dog interactions and a single complete loop that ends on a narrative beat.</p>
+      <ul><li><strong>Weeks 1–3 · Nov — Finding the Dog.</strong> Settled the core fantasy, the single-room setting and the dog's limited set of verbs.</li><li><strong>Weeks 4–6 · Nov–Dec — Building the Body.</strong> First contact with Unreal: the bespoke controller on Character Movement, and the decision to commit to Motion Matching.</li><li><strong>Weeks 7–9 · Dec–Jan — The Room as a Puzzle Box.</strong> Narrowed the scope to a short bedroom experience, defined the streamer's daily schedule and drafted the system architecture.</li><li><strong>Weeks 10–13 · Jan — Making the Dog Move.</strong> Motion Matching locomotion, rotation and camera behaviour, jump and fall logic, and the five-phase dream loop.</li><li><strong>Weeks 14–17 · Feb — Bringing the World to Life.</strong> Idle variety, a NavMesh-driven heroine, grooms, in-room screens and ambient animation.</li><li><strong>Weeks 19–21 · Mar — Polish and Structure.</strong> Custom camera collision, the limits of capsule collision, and a single diagram of the whole architecture.</li><li><strong>Weeks 22–25 · Mar–Apr — Learning from Other Animals.</strong> Research into horse controllers and animal collision that fed back into the dog, and the decision to target a ten-minute slice.</li><li><strong>Weeks 28–29 · May — Shaping the Demo.</strong> Consolidated the game's identity and defined the flow of the slice.</li><li><strong>Week 30 · May — Interaction and Event Triggers.</strong> An interface-based interaction framework and overlap triggers that turn the room into a solvable puzzle.</li><li><strong>Weeks 31–33 · Jun — Wiring the Loop.</strong> The heroine's perception and suspicion system, the first complete puzzle, and the full day-phase loop with night reset.</li><li><strong>Weeks 34–36 · Jun–Jul — First Playable.</strong> Assembled the slice end to end, added foot locking and camera polish, and ran the first structured playtest.</li></ul>
+      <h2>Current status</h2>
+      <p>The slice is playable start to finish and runs nine to twelve minutes. In the first playtest, testers understood being a dog immediately and reacted well to the moment of slipping past the heroine while she is distracted. The main finding is that suspicion needs a readable in-world signal, so being caught does not feel arbitrary, and that is the next design problem.</p>
       </div>
       <div class="pager"><a href="ai-metahuman-pipeline.html"><span class="label">Previous</span>AI MetaHuman Pipeline</a><a href="kraken-unleashed.html" style="text-align:right"><span class="label">Next</span>Kraken Unleashed</a></div>
     </div>

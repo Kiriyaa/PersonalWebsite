@@ -70,8 +70,10 @@ Every project is one object. The fields:
 | `summary` | One or two sentences under the title, and the page's meta description. |
 | `meta` | The definition list under the summary. Values may contain HTML, so links work. |
 | `sections` | Body content. Each has an optional `heading`, plus `body` (paragraphs) and/or `list`. |
-| `figures` | Images. The first one is also the card thumbnail. |
+| `figures` | Images shown on the project page. Can be empty. |
+| `thumb` | Optional card thumbnail. Defaults to the first figure. |
 | `embed` | Optional video embed URL (use the `/embed/` form for YouTube). |
+| `sections[].embeds` | Optional list of `{"url", "title"}` videos shown inside that section, for pages with several clips. |
 
 To reorder the home page, reorder the `projects` array. To reorder or rename the sections,
 edit `groups`.
