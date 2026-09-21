@@ -133,7 +133,12 @@ a{color:inherit}
   display:flex;align-items:center;justify-content:center;
 }
 .thumb img{width:100%;height:100%;object-fit:cover}
+/* for tall/narrow art (UI screenshots): show it whole, centred in the slot */
+.thumb.fit img{object-fit:contain;padding:12px}
 .thumb .ph{font-family:var(--mono);font-size:10.5px;color:var(--fg-3);letter-spacing:.05em;padding:10px;text-align:center}
+/* the filename label is a fallback only — once the image loads it must not sit beside it.
+   onerror removes the img, which un-matches this rule and brings the label back. */
+.thumb img ~ .ph{display:none}
 .card-body{padding:16px 18px 18px}
 .card-body h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-0.012em}
 .card-body .role{margin:5px 0 0;font-size:13.5px;color:var(--fg-2)}
@@ -170,6 +175,8 @@ a{color:inherit}
 
 figure{margin:34px 0}
 figure img{border:1px solid var(--line-soft);border-radius:var(--radius);width:100%}
+/* natural = render at the file's own pixel size, still capped on narrow screens */
+figure img.natural{width:auto;max-width:100%;margin-inline:auto}
 figure .ph{
   aspect-ratio:16/9;background:var(--bg-2);border:1px dashed var(--line);
   border-radius:var(--radius);display:flex;align-items:center;justify-content:center;

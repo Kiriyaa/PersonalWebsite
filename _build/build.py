@@ -94,8 +94,12 @@ PLAY_ICON = ('<svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true">'
              '<path d="M0 0l10 6-10 6z"/></svg>')
 
 
-def video_block(url, title, hint):
-    """Render an embed if a URL is set, otherwise a labelled empty slot."""
+def video_block(url, slot_ref, hint, title="Video"):
+    """Render an embed if a URL is set, otherwise a labelled empty slot.
+
+    slot_ref names the projects.json field to fill in, shown in the empty slot.
+    title is the iframe's accessible name, used once an embed URL is set.
+    """
     if url:
         return (f'<div class="embed"><iframe src="{esc(url)}" title="{esc(title)}" '
                 f'allowfullscreen loading="lazy" '
@@ -104,7 +108,7 @@ def video_block(url, title, hint):
     return f"""<div class="video-ph">
         <span class="icon">{PLAY_ICON}</span>
         <strong>{esc(hint)}</strong>
-        <code>{esc(title)}</code>
+        <code>{esc(slot_ref)}</code>
       </div>"""
 
 
@@ -113,7 +117,9 @@ def thumb(p, depth=0):
     figs = p.get("figures") or []
     if figs:
         src = figs[0]["src"]
-        return (f'<div class="thumb">'
+        # "natural" marks tall/narrow art (UI screenshots) that a cover crop would ruin
+        fit = " fit" if figs[0].get("natural") else ""
+        return (f'<div class="thumb{fit}">'
                 f'<img src="{up}{esc(src)}" alt="{esc(p["title"])}" loading="lazy" '
                 f'onerror="this.remove()">'
                 f'<div class="ph">{esc(src)}</div></div>')
@@ -167,7 +173,8 @@ def build_index(data):
         <span class="count">{esc(reel.get('year', ''))}</span>
       </div>
       {video_block(reel.get('embed', ''), 'reel.embed in _build/projects.json',
-                   'Demo reel goes here')}
+                   'Demo reel goes here',
+                   f"{reel.get('title', 'Demo Reel')} — Minghao Zhou")}
       {f'<p class="reel-note">{esc(reel_note)}</p>' if reel_note and not reel.get('embed') else ''}
     </div>
   </section>
@@ -218,8 +225,10 @@ def render_figures(figs, depth=1):
     out = []
     for f in figs:
         cap = f'<figcaption>{esc(f["caption"])}</figcaption>' if f.get("caption") else ""
+        # "natural" renders at the file's own pixel size instead of filling the column
+        cls = ' class="natural"' if f.get("natural") else ""
         out.append(f"""<figure>
-        <img src="{up}{esc(f['src'])}" alt="{esc(f.get('caption',''))}" loading="lazy"
+        <img{cls} src="{up}{esc(f['src'])}" alt="{esc(f.get('caption',''))}" loading="lazy"
              onerror="this.outerHTML='&lt;div class=\\'ph\\'&gt;{esc(f['src'])}&lt;/div&gt;'">
         {cap}
       </figure>""")
@@ -232,7 +241,8 @@ def build_project(p, prev_p, next_p):
 
     embed = video_block(p.get("embed", ""),
                         f'"embed" on {p["slug"]} in projects.json',
-                        f'Video slot — {p["title"]}')
+                        f'Video slot — {p["title"]}',
+                        p["title"])
 
     pager = []
     if prev_p:

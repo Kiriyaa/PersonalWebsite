@@ -2,8 +2,7 @@
   "reel": {
     "title": "Demo Reel",
     "year": "2026",
-    "embed": "",
-    "note": "Paste an embed URL into \"reel\" -> \"embed\" in _build/projects.json. YouTube: https://www.youtube.com/embed/VIDEO_ID  |  Vimeo: https://player.vimeo.com/video/VIDEO_ID"
+    "embed": "https://player.vimeo.com/video/1228558612"
   },
   "groups": [
     {
@@ -75,10 +74,11 @@
       "figures": [
         {
           "src": "images/ribbon-ik-ui.png",
-          "caption": "The build dialog. Controller count, ribbon width and joint pointing direction cover the settings that change most often between chains."
+          "caption": "The build dialog. Controller count, ribbon width and joint pointing direction cover the settings that change most often between chains.",
+          "natural": true
         }
       ],
-      "embed": ""
+      "embed": "https://player.vimeo.com/video/1019231932"
     },
     {
       "slug": "penguin-action-toolkit",
