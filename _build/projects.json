@@ -655,10 +655,37 @@
       "sections": [
         {
           "heading": "Contribution",
+          "body": [
+            "I worked on this game during my technical designer internship at Lilith Games."
+          ],
           "list": [
-            "Implemented, optimised and debugged in-game mechanics and animation behaviour in UE4 Blueprint and C++.",
-            "Implemented in-game character animation and helped maintain the animation system.",
-            "Contributed to the design of a new game mode."
+            "Developed, implemented, optimised and debugged in-game mechanics and animation behaviour using UE4 Blueprint and C++.",
+            "Took part in implementing the in-game animation for several characters, including locomotion, aiming and mech.",
+            "Took part in designing a new game mode."
+          ]
+        },
+        {
+          "heading": "Ducksyde",
+          "body": [
+            "Ducksyde is one of the characters I helped design and implement."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228940061",
+              "title": "Ducksyde"
+            }
+          ]
+        },
+        {
+          "heading": "New game mode",
+          "body": [
+            "A game mode I helped design and implement."
+          ],
+          "embeds": [
+            {
+              "url": "https://www.youtube.com/embed/DhyaGWZajQI",
+              "title": "Farlight 84 game mode"
+            }
           ]
         },
         {
@@ -668,12 +695,8 @@
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/farlight.jpg",
-          "caption": "In-game capture, Farlight 84."
-        }
-      ],
+      "thumb": "images/farlight.png",
+      "figures": [],
       "embed": ""
     },
     {
@@ -692,17 +715,36 @@
         "Year": "2023",
         "Exhibition": "Spring Undergraduate Exhibition, April 7–15, 2023",
         "Venue": "SAIC Galleries, 33 E. Washington St., Chicago",
+        "Platform": "PC",
+        "Tools": "Unreal Engine 5, Maya, Substance Painter, Substance Designer",
+        "Duration": "About two months",
         "Documentation": "<a href=\"https://www.youtube.com/watch?v=Ch0Z9n4zCUY\">Video documentation</a>"
       },
       "sections": [
         {
           "heading": "About the work",
           "body": [
-            "PLACEHOLDER — write two or three paragraphs about the work: what it is, what it was made with, and what it is about. Written in the register of an artist statement rather than a production breakdown.",
-            "This is the one page on the site that shows a different side of your practice, so it is worth not treating it as a technical credit."
+            "Silt Symphony is a digital installation made for my BFA show. It is built from a single dynamic 3D environment, presented as three perspectives of the same space. I made it over about two months for PC, using Unreal Engine 5, Maya and Substance Painter and Designer, and it was shown in the Spring Undergraduate Exhibition at SAIC Galleries in Chicago."
+          ]
+        },
+        {
+          "heading": "Concept",
+          "body": [
+            "The work is made of objects that are inseparable from my growing up in Baoshan, Shanghai, an industrial town built around one of the largest steel factories in China. Through animation, and a poem that I wrote and read in my hometown dialect, I made a memorial for a hometown I love and that is gradually disappearing. It was once full of factories, construction sites, waste gas, smog and countless blue-collar workers.",
+            "The piece carries a strange nostalgia: that of a kid who belonged to an industrial world he can never return to in the age of deindustrialisation."
+          ]
+        },
+        {
+          "heading": "More video",
+          "embeds": [
+            {
+              "url": "https://www.youtube.com/embed/HVsfS0jS8bE",
+              "title": "Silt Symphony"
+            }
           ]
         }
       ],
+      "thumb": "images/SiltSymphony.png",
       "embed": "https://www.youtube.com/embed/Ch0Z9n4zCUY",
       "figures": []
     }
