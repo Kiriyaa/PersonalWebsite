@@ -73,6 +73,7 @@ Every project is one object. The fields:
 | `figures` | Images shown on the project page. Can be empty. |
 | `thumb` | Optional card thumbnail. Defaults to the first figure. |
 | `embed` | Optional video embed URL (use the `/embed/` form for YouTube). |
+| `no_video` | Set `true` on a project with no video, so it doesn't show the empty video slot. |
 | `sections[].embeds` | Optional list of `{"url", "title"}` videos shown inside that section, for pages with several clips. |
 
 To reorder the home page, reorder the `projects` array. To reorder or rename the sections,

@@ -194,31 +194,80 @@
       "role": "Sole author",
       "year": "2023",
       "tags": [
-        "Unreal Engine",
+        "Unreal Engine 4",
         "Blueprint",
         "VFX"
       ],
-      "summary": "A runtime erosion effect in Unreal Engine with a blueprint-driven control panel for switching between modes and driving the erosion percentage.",
+      "summary": "An eroding VFX material and a quick-editing tool for Unreal Engine 4, built to be easy for artists to edit and test.",
       "meta": {
         "Role": "Sole author",
         "Year": "2023",
-        "Tools": "Unreal Engine, Blueprint, Niagara"
+        "Tools": "UE4, 3ds Max, Houdini, Substance Designer, Substance Painter"
       },
       "sections": [
         {
           "heading": "Overview",
           "body": [
-            "An in-editor control panel exposes three erosion modes and a live percentage readout, so the effect can be dialled in against the character in the viewport rather than through trial-and-error recompiles.",
-            "PLACEHOLDER — expand with how the erosion is driven (material, Niagara, mesh) and what the three modes differ in."
+            "This is my practice of VFX creation and tool development. When I built the material and the tool, I tried to think about what artists need in VFX creation, and how to make the tool easy to use during development."
+          ]
+        },
+        {
+          "heading": "Eroding effects",
+          "body": [
+            "Three character eroding effects, all based on one base material that I built."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228953706",
+              "title": "3 Erode Effect"
+            }
+          ],
+          "figures": [
+            {
+              "src": "images/erosion-ui.png",
+              "caption": "The erosion effect on a character, with a glowing green edge along the eroding areas."
+            }
+          ]
+        },
+        {
+          "heading": "Base material",
+          "body": [
+            "The base material behind all three effects. It is highly editable and friendly to artists."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228953703",
+              "title": "Material"
+            }
+          ]
+        },
+        {
+          "heading": "Editing tool",
+          "body": [
+            "A tool I scripted to adjust the erosion angle and run quick tests."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228953704",
+              "title": "Erosion editing tool"
+            }
+          ]
+        },
+        {
+          "heading": "Tool blueprint",
+          "body": [
+            "The Blueprint behind the tool."
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1228953702",
+              "title": "Erosion tool blueprint"
+            }
           ]
         }
       ],
-      "figures": [
-        {
-          "src": "images/erosion-ui.png",
-          "caption": "Mode selection and live erosion percentage, driven from blueprint."
-        }
-      ],
+      "thumb": "images/erosion-ui.png",
+      "figures": [],
       "embed": ""
     },
     {
@@ -700,6 +749,46 @@
       "embed": ""
     },
     {
+      "slug": "the-003",
+      "group": "games",
+      "title": "The 003",
+      "role": "3D Artist",
+      "year": "2023",
+      "tags": [
+        "Unreal Engine 5",
+        "Maya",
+        "3D Animation",
+        "Commercial"
+      ],
+      "summary": "A promotional 3D animation for an art and design store in China. I was one of two artists behind the film's entire 3D portion, and supported the rest of a distributed freelance team.",
+      "meta": {
+        "Role": "3D Artist & Technical Support",
+        "Year": "2023",
+        "Tools": "Unreal Engine 5, Maya",
+        "Type": "Commercial project, 3D animation",
+        "Team": "Distributed freelance team",
+        "Duration": "Two months"
+      },
+      "sections": [
+        {
+          "heading": "Overview",
+          "body": [
+            "A commercial project for WallpaperStore*, Suzhou, China: a promotional video for an art and design store, produced as a 3D animation in Unreal Engine 5. I worked with a team of other freelancers, and the whole project lasted two months."
+          ]
+        },
+        {
+          "heading": "Contribution",
+          "list": [
+            "One of two artists responsible for the film's entire 3D portion, covering environment design, modelling and shot design.",
+            "Provided technical support to the other 3D artists on a distributed freelance team that worked without a shared studio pipeline."
+          ]
+        }
+      ],
+      "thumb": "images/The003.png",
+      "figures": [],
+      "embed": "https://player.vimeo.com/video/877010253"
+    },
+    {
       "slug": "silt-symphony",
       "group": "art",
       "title": "Silt Symphony",
@@ -747,6 +836,49 @@
       "thumb": "images/SiltSymphony.png",
       "embed": "https://www.youtube.com/embed/Ch0Z9n4zCUY",
       "figures": []
+    },
+    {
+      "slug": "run-valley-city",
+      "group": "art",
+      "title": "Run – Valley City",
+      "role": "Studio Assistant",
+      "year": "2023",
+      "tags": [
+        "Art Game",
+        "Exhibited"
+      ],
+      "summary": "An art game by Snow Yunxue Fu, exhibited in Let's Entertain at Times Art Museum, Chongqing. I am credited as Studio Assistant.",
+      "meta": {
+        "Role": "Studio Assistant",
+        "Year": "2023",
+        "Artist": "Snow Yunxue Fu",
+        "Exhibition": "Let's Entertain, Times Art Museum, Chongqing, China, summer 2023",
+        "Curator": "RaidenInst",
+        "Work and credit": "<a href=\"https://www.snowyunxuefu.com/section/505997-Run%20-%20Valley%20City.html\">Run – Valley City</a>",
+        "Exhibition page": "<a href=\"https://www.snowyunxuefu.com/section/524431-Times%20Art%20Museum%20Exhibition%20in%20Chongqing%2c%20China.html\">Times Art Museum, Chongqing</a>"
+      },
+      "sections": [
+        {
+          "heading": "About the work",
+          "body": [
+            "Run – Valley City is an art game by Snow Yunxue Fu, on which I am credited as Studio Assistant.",
+            "It was exhibited in Let's Entertain, a group exhibition of digital and interactive work by 19 international multimedia artists, curated by RaidenInst, at Times Art Museum in Chongqing, China, in summer 2023."
+          ]
+        }
+      ],
+      "thumb": "images/city2.jpg",
+      "no_video": true,
+      "figures": [
+        {
+          "src": "images/city1.jpg",
+          "caption": "City 1. A figure walks through a flooded, reflective city at night."
+        },
+        {
+          "src": "images/city2.jpg",
+          "caption": "City 2. A wider view of the city at night, ringed by mountains, with glowing plants growing among the buildings."
+        }
+      ],
+      "embed": ""
     }
   ]
 }

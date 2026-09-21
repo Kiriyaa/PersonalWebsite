@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Erosion System — Minghao Zhou</title>
-<meta name="description" content="A runtime erosion effect in Unreal Engine with a blueprint-driven control panel for switching between modes and driving the erosion percentage.">
+<meta name="description" content="An eroding VFX material and a quick-editing tool for Unreal Engine 4, built to be easy for artists to edit and test.">
 <meta property="og:title" content="Erosion System — Minghao Zhou">
-<meta property="og:description" content="A runtime erosion effect in Unreal Engine with a blueprint-driven control panel for switching between modes and driving the erosion percentage.">
+<meta property="og:description" content="An eroding VFX material and a quick-editing tool for Unreal Engine 4, built to be easy for artists to edit and test.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,27 +29,36 @@
     <div class="wrap">
       <a class="backlink" href="../index.html">&larr; All work</a>
       <h1>Erosion System</h1>
-      <p class="summary">A runtime erosion effect in Unreal Engine with a blueprint-driven control panel for switching between modes and driving the erosion percentage.</p>
-      <dl class="meta"><div><dt>Role</dt><dd>Sole author</dd></div><div><dt>Year</dt><dd>2023</dd></div><div><dt>Tools</dt><dd>Unreal Engine, Blueprint, Niagara</dd></div></dl>
+      <p class="summary">An eroding VFX material and a quick-editing tool for Unreal Engine 4, built to be easy for artists to edit and test.</p>
+      <dl class="meta"><div><dt>Role</dt><dd>Sole author</dd></div><div><dt>Year</dt><dd>2023</dd></div><div><dt>Tools</dt><dd>UE4, 3ds Max, Houdini, Substance Designer, Substance Painter</dd></div></dl>
     </div>
   </section>
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Erosion System</strong>
-        <code>&quot;embed&quot; on erosion-system in projects.json</code>
-      </div>
-      <figure>
-        <img src="../images/erosion-ui.png" alt="Mode selection and live erosion percentage, driven from blueprint." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/erosion-ui.png&lt;/div&gt;'">
-        <figcaption>Mode selection and live erosion percentage, driven from blueprint.</figcaption>
-      </figure>
+
       <div class="prose">
       <h2>Overview</h2>
-      <p>An in-editor control panel exposes three erosion modes and a live percentage readout, so the effect can be dialled in against the character in the viewport rather than through trial-and-error recompiles.</p>
-      <p>PLACEHOLDER — expand with how the erosion is driven (material, Niagara, mesh) and what the three modes differ in.</p>
+      <p>This is my practice of VFX creation and tool development. When I built the material and the tool, I tried to think about what artists need in VFX creation, and how to make the tool easy to use during development.</p>
+      <h2>Eroding effects</h2>
+      <p>Three character eroding effects, all based on one base material that I built.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228953706" title="3 Erode Effect" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      </div>
+      <figure>
+        <img src="../images/erosion-ui.png" alt="The erosion effect on a character, with a glowing green edge along the eroding areas." loading="lazy"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/erosion-ui.png&lt;/div&gt;'">
+        <figcaption>The erosion effect on a character, with a glowing green edge along the eroding areas.</figcaption>
+      </figure>
+      <div class="prose">
+      <h2>Base material</h2>
+      <p>The base material behind all three effects. It is highly editable and friendly to artists.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228953703" title="Material" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Editing tool</h2>
+      <p>A tool I scripted to adjust the erosion angle and run quick tests.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228953704" title="Erosion editing tool" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      <h2>Tool blueprint</h2>
+      <p>The Blueprint behind the tool.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1228953702" title="Erosion tool blueprint" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
       </div>
       <div class="pager"><a href="quadruped-rigging-tool.html"><span class="label">Previous</span>Quadruped Rigging Toolset</a><a href="character-rigs.html" style="text-align:right"><span class="label">Next</span>Character Rigs</a></div>
     </div>

@@ -247,7 +247,7 @@ def build_project(p, prev_p, next_p):
 
     # pages whose videos live inside sections don't need the empty top-of-page slot
     has_section_videos = any(s.get("embeds") for s in p.get("sections", []))
-    if p.get("embed") or not has_section_videos:
+    if p.get("embed") or not (has_section_videos or p.get("no_video")):
         embed = video_block(p.get("embed", ""),
                             f'"embed" on {p["slug"]} in projects.json',
                             f'Video slot — {p["title"]}',
