@@ -99,14 +99,46 @@
         "Tools": "Unity 2022.3, C#, URP",
         "Team": "Six-person team at Carnegie Mellon ETC, advised by Dave Culyba and Tom Corbett",
         "Asset Store": "<a href=\"https://assetstore.unity.com/packages/templates/systems/penguin-arpg-toolkit-302387\">Penguin ARPG Toolkit</a>",
-        "Project site": "<a href=\"https://projects.etc.cmu.edu/patpat/\">projects.etc.cmu.edu/patpat</a>"
+        "Project site": "<a href=\"https://projects.etc.cmu.edu/patpat/\">projects.etc.cmu.edu/patpat</a>",
+        "Documentation": "<a href=\"https://patpat.gitbook.io/penguin-action-toolkit\">GitBook</a>"
       },
       "sections": [
         {
           "heading": "Overview",
           "body": [
             "Action games have a deep, well-understood structure — move sets, actions, modifiers, cancel windows — but Unity gives you no scaffolding for any of it. Small teams end up rebuilding the same state handling from scratch and running out of time before the game feels good.",
-            "Penguin Action Toolkit provides that scaffolding, along with documentation, tutorials and sample content, so a designer can iterate on combat feel instead of on plumbing."
+            "Penguin Action Toolkit provides that scaffolding, along with documentation, tutorials and sample content, so a designer can iterate on combat feel instead of on plumbing. The framework is built to stay structured yet flexible, for developers who want to code rather than avoid it — every system is meant to be extended, not just configured."
+          ]
+        },
+        {
+          "heading": "Core systems",
+          "body": [
+            "<strong>Character Locomotion</strong> handles movement — player input, character movement and camera behaviour — through modular motor and animator components that can be swapped independently.",
+            "<strong>Character Abilities</strong> are triggered containers called Action States, defined by State Modifiers that control animations, effects, sounds and locomotion changes, so a designer builds a move by composing modifiers rather than writing a new state machine."
+          ],
+          "figures": [
+            {
+              "src": "images/pat-gui-overview.jpg",
+              "caption": "The toolkit's editor surfaces: the PAT_Toolkit menu, the MoveSet / Action / Modifier hierarchy, and the character inspector that ties them to a runtime node graph."
+            }
+          ]
+        },
+        {
+          "heading": "Node graph editor",
+          "body": [
+            "The GUI Node Graph Editor lets a designer build a character's action structure by adding nodes and dragging in scripts, instead of hand-wiring state machines in code. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance."
+          ],
+          "figures": [
+            {
+              "src": "images/pat-components.png",
+              "caption": "An Action State's component stack — attack, locomotion, tag and montage-speed modifiers stacked on a single node."
+            }
+          ],
+          "embeds": [
+            {
+              "url": "https://player.vimeo.com/video/1034882126",
+              "title": "Node Graph System — Penguin Action Toolkit"
+            }
           ]
         },
         {
@@ -126,11 +158,11 @@
       ],
       "figures": [
         {
-          "src": "images/pat-graph.png",
+          "src": "images/pat-graph.jpg",
           "caption": "The node editor. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance."
         }
       ],
-      "embed": ""
+      "embed": "https://player.vimeo.com/video/1229147035"
     },
     {
       "slug": "quadruped-rigging-tool",

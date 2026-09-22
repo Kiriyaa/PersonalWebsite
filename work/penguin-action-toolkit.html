@@ -30,26 +30,42 @@
       <a class="backlink" href="../index.html">&larr; All work</a>
       <h1>Penguin Action Toolkit</h1>
       <p class="summary">An accessible, extensible action-game framework for Unity, released free on the Unity Asset Store. I built the node-based editor and contributed to the animation and behaviour architecture.</p>
-      <dl class="meta"><div><dt>Role</dt><dd>Engineer & Technical Designer</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>Tools</dt><dd>Unity 2022.3, C#, URP</dd></div><div><dt>Team</dt><dd>Six-person team at Carnegie Mellon ETC, advised by Dave Culyba and Tom Corbett</dd></div><div><dt>Asset Store</dt><dd><a href="https://assetstore.unity.com/packages/templates/systems/penguin-arpg-toolkit-302387">Penguin ARPG Toolkit</a></dd></div><div><dt>Project site</dt><dd><a href="https://projects.etc.cmu.edu/patpat/">projects.etc.cmu.edu/patpat</a></dd></div></dl>
+      <dl class="meta"><div><dt>Role</dt><dd>Engineer & Technical Designer</dd></div><div><dt>Year</dt><dd>2024</dd></div><div><dt>Tools</dt><dd>Unity 2022.3, C#, URP</dd></div><div><dt>Team</dt><dd>Six-person team at Carnegie Mellon ETC, advised by Dave Culyba and Tom Corbett</dd></div><div><dt>Asset Store</dt><dd><a href="https://assetstore.unity.com/packages/templates/systems/penguin-arpg-toolkit-302387">Penguin ARPG Toolkit</a></dd></div><div><dt>Project site</dt><dd><a href="https://projects.etc.cmu.edu/patpat/">projects.etc.cmu.edu/patpat</a></dd></div><div><dt>Documentation</dt><dd><a href="https://patpat.gitbook.io/penguin-action-toolkit">GitBook</a></dd></div></dl>
     </div>
   </section>
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="video-ph">
-        <span class="icon"><svg viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M0 0l10 6-10 6z"/></svg></span>
-        <strong>Video slot — Penguin Action Toolkit</strong>
-        <code>&quot;embed&quot; on penguin-action-toolkit in projects.json</code>
-      </div>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1229147035" title="Penguin Action Toolkit" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
       <figure>
-        <img src="../images/pat-graph.png" alt="The node editor. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance." loading="lazy"
-             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/pat-graph.png&lt;/div&gt;'">
+        <img src="../images/pat-graph.jpg" alt="The node editor. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance." loading="lazy"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/pat-graph.jpg&lt;/div&gt;'">
         <figcaption>The node editor. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance.</figcaption>
       </figure>
       <div class="prose">
       <h2>Overview</h2>
       <p>Action games have a deep, well-understood structure — move sets, actions, modifiers, cancel windows — but Unity gives you no scaffolding for any of it. Small teams end up rebuilding the same state handling from scratch and running out of time before the game feels good.</p>
-      <p>Penguin Action Toolkit provides that scaffolding, along with documentation, tutorials and sample content, so a designer can iterate on combat feel instead of on plumbing.</p>
+      <p>Penguin Action Toolkit provides that scaffolding, along with documentation, tutorials and sample content, so a designer can iterate on combat feel instead of on plumbing. The framework is built to stay structured yet flexible, for developers who want to code rather than avoid it — every system is meant to be extended, not just configured.</p>
+      <h2>Core systems</h2>
+      <p><strong>Character Locomotion</strong> handles movement — player input, character movement and camera behaviour — through modular motor and animator components that can be swapped independently.</p>
+      <p><strong>Character Abilities</strong> are triggered containers called Action States, defined by State Modifiers that control animations, effects, sounds and locomotion changes, so a designer builds a move by composing modifiers rather than writing a new state machine.</p>
+      </div>
+      <figure>
+        <img src="../images/pat-gui-overview.jpg" alt="The toolkit&#x27;s editor surfaces: the PAT_Toolkit menu, the MoveSet / Action / Modifier hierarchy, and the character inspector that ties them to a runtime node graph." loading="lazy"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/pat-gui-overview.jpg&lt;/div&gt;'">
+        <figcaption>The toolkit&#x27;s editor surfaces: the PAT_Toolkit menu, the MoveSet / Action / Modifier hierarchy, and the character inspector that ties them to a runtime node graph.</figcaption>
+      </figure>
+      <div class="prose">
+      <h2>Node graph editor</h2>
+      <p>The GUI Node Graph Editor lets a designer build a character's action structure by adding nodes and dragging in scripts, instead of hand-wiring state machines in code. Character, move set, action and modifier nodes are colour-coded so the shape of a behaviour tree is legible at a glance.</p>
+      <div class="embed"><iframe src="https://player.vimeo.com/video/1034882126" title="Node Graph System — Penguin Action Toolkit" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+      </div>
+      <figure>
+        <img src="../images/pat-components.png" alt="An Action State&#x27;s component stack — attack, locomotion, tag and montage-speed modifiers stacked on a single node." loading="lazy"
+             onerror="this.outerHTML='&lt;div class=\'ph\'&gt;images/pat-components.png&lt;/div&gt;'">
+        <figcaption>An Action State&#x27;s component stack — attack, locomotion, tag and montage-speed modifiers stacked on a single node.</figcaption>
+      </figure>
+      <div class="prose">
       <h2>My contribution</h2>
       <ul><li>Designed and built the node-based GUI editor, modelled on the Unreal Engine Blueprint system, so that designers can author and read character behaviour visually.</li><li>Contributed to the architecture connecting character nodes, move sets, actions and modifiers.</li><li>Created character rigs and animations for the sample content shipped with the package.</li></ul>
       <h2>Release</h2>
